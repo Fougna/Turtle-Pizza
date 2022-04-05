@@ -3,8 +3,8 @@ A 2D Unity game project about a car delivering pizzas to turtles
 
 ![Screenshot](http://www.kavaseb.com/site/Turtle-Pizza-Anim.gif)
 
- **Version 0.0.1**
- Gameplay mechanics added:
+#### Version 0.0.1
+ **Gameplay mechanics added:**
 - Car moves forwards and backwards.
 - Car turns left and right.
 - Car speed increases when driving over a booster.
