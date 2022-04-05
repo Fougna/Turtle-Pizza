@@ -5,7 +5,7 @@ using UnityEngine;
 public class Delivery : MonoBehaviour
 {
     // Boolean variable to define if the player has picked up or not a pizza.
-    // Boolean are set by default to false.
+    // Booleans are set by default to false.
     bool hasPizza;
 
     // Serialized variable to set game object destruction delay.
