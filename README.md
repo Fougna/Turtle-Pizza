@@ -7,8 +7,8 @@ A 2D Unity game project about a car delivering pizzas to turtles
  - Player Experience: Relaxing
  - Core Mechanic: Drive over pizzas
  - Game Loop: Find and deliver all the pizzas to turtles to win
- - 
-#### Version 0.0.1 ---------------------------------------------
+
+#### Version 0.0.1 (April 5th 2002) ---------------------------------------------
  **Gameplay mechanics added:**
 - Car moves forwards and backwards.
 - Car turns left and right.
