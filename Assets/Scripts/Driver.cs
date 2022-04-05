@@ -4,29 +4,50 @@ using UnityEngine;
 
 public class Driver : MonoBehaviour
 {
-    // Variable that defines the rotation speed of the car when it turns.
+    // Serialized variable that sets the rotation speed of the car when it turns.
     [SerializeField] float rotateSpeed = 0.1f;
     
-    // Variable that defines the actual moving speed of the car.
+    // Serialized variable that sets the actual moving speed of the car.
     [SerializeField] float moveSpeed = 0.01f;
 
-    // Start is called before the first frame update
-    void Start()
+    // Serialized variable that sets the speed slowdown amount when a car will bump on an obstacle.
+    [SerializeField] float slowSpeed = 15f;
+
+    // Serialized variable that sets the speed boost amount when a car will collide in a booster.
+    [SerializeField] float boostSpeed = 30f;
+
+    // Serialized variable to set game object destruction delay.
+    [SerializeField] float destroyDelay = 0.2f;
+
+    // Collision method to slow down the car when it hits an obstacle.
+    void OnCollisionEnter2D(Collision2D other)
     {
-        
+        moveSpeed = slowSpeed;
+    }
+
+    // Trigger method to speed up the car when it collides with a booster.
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Booster")
+        {
+            // Actual speed becomes boost speed.
+            moveSpeed = boostSpeed;
+            // Booster is removed after collision.
+            Destroy(other.gameObject, destroyDelay);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Variable that defines the rotation speed can be changed when using the input method GetAxis,
+        // Variable that sets the rotation speed to be changed when using the input method GetAxis,
         // attached to the "Horizontal" parameter in Unity's Input Manager.
         // Added multiply by the rotateSpeed value (to match its default value).
         // Added multiply by the Time.deltaTime that will modify the number of frames required
         // depending on the power of the computer it runs on.
         float rotateAmount = Input.GetAxis("Horizontal") * rotateSpeed * Time.deltaTime;
 
-        // Variable that defines the move speed can be changed when using the input method GetAxis,
+        // Variable that sets the move speed to be changed when using the input method GetAxis,
         // attached to the "Vertical" parameter in Unity's Input Manager.
         // Added multiply by the moveSpeed value (to match its default value).
         // Added multiply by the Time.deltaTime that will modify the number of frames required
