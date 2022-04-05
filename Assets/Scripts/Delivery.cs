@@ -17,7 +17,7 @@ public class Delivery : MonoBehaviour
     // Serialized variable to set the car's color back to default.
     [SerializeField] Color32 noPizzaColor = new Color32 (1, 1, 1, 1);
 
-    // Variable to call asprite renderer component later.
+    // Variable to call a sprite renderer component later.
     SpriteRenderer spriteRenderer;
 
     void Start()
