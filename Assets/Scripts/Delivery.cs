@@ -5,7 +5,7 @@ using UnityEngine;
 public class Delivery : MonoBehaviour
 {
     // Boolean variable to define if the player has picked up or not a pizza.
-    // Boolean are set by default to false.
+    // Booleans are set by default to false.
     bool hasPizza;
 
     // Serialized variable to set game object destruction delay.
@@ -17,7 +17,7 @@ public class Delivery : MonoBehaviour
     // Serialized variable to set the car's color back to default.
     [SerializeField] Color32 noPizzaColor = new Color32 (1, 1, 1, 1);
 
-    // Variable to call asprite renderer component later.
+    // Variable to call a sprite renderer component later.
     SpriteRenderer spriteRenderer;
 
     void Start()
