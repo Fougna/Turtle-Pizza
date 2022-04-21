@@ -26,12 +26,6 @@ public class Delivery : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    // Method to set actions when the player collides on a basic object.
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        Debug.Log("Ouch !");
-    }
-
     // Method to set actions when the player collides on a trigger object.
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -57,6 +51,8 @@ public class Delivery : MonoBehaviour
             hasPizza = false;
             // We get the color component of the sprite renderer and change the color of the car back to default.
             spriteRenderer.color = noPizzaColor;
+            // Once picked up, the game object encountered (turtle) is removed with a delay between collision and removal.
+            Destroy(other.gameObject, destroyDelay);
         }
     }
 }

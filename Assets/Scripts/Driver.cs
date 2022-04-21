@@ -19,9 +19,14 @@ public class Driver : MonoBehaviour
     // Serialized variable to set game object destruction delay.
     [SerializeField] float destroyDelay = 0.2f;
 
+    // Serialized particle system named as the boost explosion effect created in hierarchy.
+    // In Unity, the boost explosion effect asset in hierarchy must be manually linked to the script component.
+    [SerializeField] ParticleSystem boostExplosionEffect;
+
     // Collision method to slow down the car when it hits an obstacle.
     void OnCollisionEnter2D(Collision2D other)
     {
+        Debug.Log("Ouch !");
         moveSpeed = slowSpeed;
     }
 
@@ -32,6 +37,8 @@ public class Driver : MonoBehaviour
         {
             // Actual speed becomes boost speed.
             moveSpeed = boostSpeed;
+             // Play the boost explosion particle effect,
+            boostExplosionEffect.Play();
             // Booster is removed after collision.
             Destroy(other.gameObject, destroyDelay);
         }
